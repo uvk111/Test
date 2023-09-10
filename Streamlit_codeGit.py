@@ -231,6 +231,10 @@ with right_column1:
 
 MevalMetric = MevalMetric.set_index('Model Name', drop=True)
 st.write(MevalMetric)
+st.markdown("Note: The scale of Dependent variable(Price of Home) is between Thousands and Millions")
+st.markdown("The Error residue is computed based on actual(Price - predicted(Y-Predicted). ")
+st.markdown("So the error Matrix Y-axis scale in chart will be high")
+st.markdown("As a thumb rule lower the error better the model")
 st.markdown("<hr style='margin: 5px 0; padding: 0;'>", unsafe_allow_html=True)
 
 st.markdown("<hr style='margin: 5px 0; padding: 0;'>", unsafe_allow_html=True)
