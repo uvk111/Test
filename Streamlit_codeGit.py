@@ -140,7 +140,7 @@ layout = go.Layout(title=dict(text="Number of Homes vs Dependent Variable by Ten
 Chart1_3 = go.Figure(data=[trace31, trace32], layout=layout)
 
 #MonthYear
-trace41 = go.Bar(x=MonthYear_Filter['Values'], y=MonthYear_Filter['Count'], name="Number of Loans", marker=dict(color='cornflowerblue'))
+trace41 = go.Bar(x=MonthYear_Filter['Values'], y=MonthYear_Filter['Count'], name="Number of Homes", marker=dict(color='cornflowerblue'))
 trace42 = go.Scatter(x=MonthYear_Filter['Values'], y=MonthYear_Filter['AvgDV'], mode='lines', name="AvgDV", yaxis='y2', line=dict(color='red'))
 layout = go.Layout(title=dict(text="Number of Homes vs Dependent Variable by Months", font=dict(size=16)), xaxis=dict(title="Time Period (In Month Year)", tickfont=dict(size=12)), yaxis=dict(title="Number of Homes", tickfont=dict(size=12), range=[0, MonthYear_Filter['Count'].max()], tick0=0, dtick=100000, showgrid=False), yaxis2=dict(title="Average Dependent Variable", tickfont=dict(size=12), overlaying='y', side='right', range=[0, MonthYear_Filter['AvgDV'].max()], tick0=0, dtick=100000, showgrid=False), paper_bgcolor='white', plot_bgcolor='white', font=dict(color='grey', size=12), showlegend=True, legend=dict(orientation='v', x=1, y=1.2))
 Chart1_4 = go.Figure(data=[trace41, trace42], layout=layout)
