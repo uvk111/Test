@@ -7,20 +7,20 @@ st.set_page_config(layout="wide")
 st.title('House Price Prediction Dashboard')
 
 #TASK1: READ FILES
-Source_files_dir = "C:\\Users\\Avinash G\\PycharmProjects\\Home_prediction_streamlit\\ModelOutput\\"
-FactorsLookup = pd.read_csv(Source_files_dir + "FactorsLookup.csv")
-Initialdata = pd.read_csv(Source_files_dir + "Inputdata_Reduced.csv")
-summaryCont_df = pd.read_csv(Source_files_dir + "Continuous_BeforeEDA.csv")
-summaryCont_Treated = pd.read_csv(Source_files_dir + "Continuous_AfterEDA.csv")
-summaryCategorical_df = pd.read_csv(Source_files_dir + "Categorical_BeforeEDA.csv")
-summaryCategorical_Treated = pd.read_csv(Source_files_dir + "Categorical_AfterEDA.csv")
-bivariate_analysis = pd.read_csv(Source_files_dir + "BivariateResults.csv")
-Correlation_VariableSelection = pd.read_csv(Source_files_dir + "Correlation_VariableSelection.csv")
-Regression_Model_Metrics = pd.read_csv(Source_files_dir + "Regression_Model_Metrics.csv")
+# Source_files_dir = "C:\\Users\\Avinash G\\PycharmProjects\\Home_prediction_streamlit\\ModelOutput\\"
+FactorsLookup = pd.read_csv('https://raw.githubusercontent.com/uvk111/Testing_pipeline/main/data/FactorsLookup.csv')
+Initialdata = pd.read_csv('https://raw.githubusercontent.com/uvk111/Testing_pipeline/main/data/Inputdata_FullDF_selectedcols.csv')
+summaryCont_df = pd.read_csv('https://raw.githubusercontent.com/uvk111/Testing_pipeline/main/data/summaryCont_df.csv')
+summaryCont_Treated = pd.read_csv('https://raw.githubusercontent.com/uvk111/Testing_pipeline/main/data/summaryCont_Treated.csv')
+summaryCategorical_df = pd.read_csv('https://raw.githubusercontent.com/uvk111/Testing_pipeline/main/data/summaryCategorical_df.csv')
+summaryCategorical_Treated = pd.read_csv('https://raw.githubusercontent.com/uvk111/Testing_pipeline/main/data/summaryCategorical_Treated.csv')
+bivariate_analysis = pd.read_csv('https://raw.githubusercontent.com/uvk111/Testing_pipeline/main/data/bivariate_analysis.csv')
+Correlation_VariableSelection = pd.read_csv('https://raw.githubusercontent.com/uvk111/Testing_pipeline/main/data/Correlation_VariableSelection.csv')
+Regression_Model_Metrics = pd.read_csv('https://raw.githubusercontent.com/uvk111/Testing_pipeline/main/data/Regression_Model_Metrics.csv')
 
-Scored_Luxury = pd.read_csv(Source_files_dir + "LUXURYMODEL_Scored_Dataframe.csv")
-Scored_MidRange = pd.read_csv(Source_files_dir + "MIDRANGEMODEL_Scored_Dataframe.csv")
-Scored_Affordable = pd.read_csv(Source_files_dir + "AFFORDABLEMODEL_Scored_Dataframe.csv")
+Scored_Luxury = pd.read_csv('https://raw.githubusercontent.com/uvk111/Testing_pipeline/main/data/LUXURYMODEL_Scored_Dataframe.csv')
+Scored_MidRange = pd.read_csv('https://raw.githubusercontent.com/uvk111/Testing_pipeline/main/data/MIDRANGEMODEL_Scored_Dataframe.csv')
+Scored_Affordable = pd.read_csv('https://raw.githubusercontent.com/uvk111/Testing_pipeline/main/data/AFFORDABLEMODEL_Scored_Dataframe.csv')
 
 #TASK2:
 st.write("")
