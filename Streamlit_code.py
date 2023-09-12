@@ -9,7 +9,7 @@ st.title('House Price Prediction Dashboard')
 #TASK1: READ FILES
 # Source_files_dir = "C:\\Users\\Avinash G\\PycharmProjects\\Home_prediction_streamlit\\ModelOutput\\"
 FactorsLookup = pd.read_csv('https://raw.githubusercontent.com/uvk111/Testing_pipeline/main/data/FactorsLookup.csv')
-Initialdata = pd.read_csv('https://raw.githubusercontent.com/uvk111/Testing_pipeline/main/data/Inputdata_FullDF_selectedcols.csv')
+Initialdata = pd.read_csv('https://raw.githubusercontent.com/uvk111/Testing_pipeline/main/data/Inputdata_Reduced.csv')
 summaryCont_df = pd.read_csv('https://raw.githubusercontent.com/uvk111/Testing_pipeline/main/data/summaryCont_df.csv')
 summaryCont_Treated = pd.read_csv('https://raw.githubusercontent.com/uvk111/Testing_pipeline/main/data/summaryCont_Treated.csv')
 summaryCategorical_df = pd.read_csv('https://raw.githubusercontent.com/uvk111/Testing_pipeline/main/data/summaryCategorical_df.csv')
