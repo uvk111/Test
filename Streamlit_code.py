@@ -311,7 +311,7 @@ if Choice == 'Affordable':
      #trace87 = go.Line(x=[custom_labels[val] for val in dataset81['Duration_Relates_to_the_tenure']], y=dataset81['y_pred_NN_AM'], name='Neural Networks', mode='lines',marker=dict(color='mediumturquoise'), showlegend=True)
     # trace88 = go.Line(x=[custom_labels[val] for val in dataset81['Duration_Relates_to_the_tenure']], y=dataset81['y_pred_ANN_AM'], name='Artificial Neural Networks', mode='lines',marker=dict(color='coral'), showlegend=True)
     trace89 = go.Line(x=[custom_labels[val] for val in dataset81['Duration_Relates_to_the_tenure']], y=dataset81['y_pred_DNN_AM'], name='Deep Neural Networks', mode='lines',marker=dict(color='goldenrod'), showlegend=True)
-    layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Property Ownership", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Tenure"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
+    layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Property Ownership", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Property Ownership"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
     Chart8_1 = go.Figure(data=[trace81, trace82, trace83, trace84, trace86, trace89], layout=layout)
 
     dataset91 = Scored_Affordable.groupby('MonthYear')[['DVlog','y_pred_LR_AM','y_pred_DT_AM','y_pred_RF_AM','y_pred_XGB_AM','y_pred_NN_AM','y_pred_ANN_AM','y_pred_DNN_AM']].mean().reset_index()
@@ -324,7 +324,7 @@ if Choice == 'Affordable':
     # trace97 = go.Line(x=dataset91['MonthYear'], y=dataset91['y_pred_NN_AM'], name='Neural Networks', mode='lines',marker=dict(color='mediumturquoise'), showlegend=True)
      #trace98 = go.Line(x=dataset91['MonthYear'], y=dataset91['y_pred_ANN_AM'], name='Artificial Neural Networks', mode='lines',marker=dict(color='coral'), showlegend=True)
     trace99 = go.Line(x=dataset91['MonthYear'], y=dataset91['y_pred_DNN_AM'], name='Deep Neural Networks', mode='lines',marker=dict(color='goldenrod'), showlegend=True)
-    layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Time Period (In Months)", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Ownership"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
+    layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Time Period (In Months)", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Pro"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
     Chart9_1 = go.Figure(data=[trace91, trace92, trace93, trace94, trace96, trace99], layout=layout)
 
 elif Choice == 'MidRange':
