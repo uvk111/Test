@@ -324,7 +324,7 @@ if Choice == 'Affordable':
     # trace97 = go.Line(x=dataset91['MonthYear'], y=dataset91['y_pred_NN_AM'], name='Neural Networks', mode='lines',marker=dict(color='mediumturquoise'), showlegend=True)
      #trace98 = go.Line(x=dataset91['MonthYear'], y=dataset91['y_pred_ANN_AM'], name='Artificial Neural Networks', mode='lines',marker=dict(color='coral'), showlegend=True)
     trace99 = go.Line(x=dataset91['MonthYear'], y=dataset91['y_pred_DNN_AM'], name='Deep Neural Networks', mode='lines',marker=dict(color='goldenrod'), showlegend=True)
-    layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Time Period (In Months)", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Pro"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
+    layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Time Period (In Months)", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Time Period (In Months)"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
     Chart9_1 = go.Figure(data=[trace91, trace92, trace93, trace94, trace96, trace99], layout=layout)
 
 elif Choice == 'MidRange':
@@ -353,7 +353,7 @@ elif Choice == 'MidRange':
     # trace77 = go.Line(x=[custom_labels[val] for val in dataset71['New_Property']], y=dataset71['y_pred_NN_MM'], name='Neural Networks', mode='lines',marker=dict(color='mediumturquoise'), showlegend=True)
     # trace78 = go.Line(x=[custom_labels[val] for val in dataset71['New_Property']], y=dataset71['y_pred_ANN_MM'], name='Artificial Neural Networks', mode='lines',marker=dict(color='coral'), showlegend=True)
     trace79 = go.Line(x=[custom_labels[val] for val in dataset71['New_Property']], y=dataset71['y_pred_DNN_MM'], name='Deep Neural Networks', mode='lines',marker=dict(color='goldenrod'), showlegend=True)
-    layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Age of property", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Property Type"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
+    layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Age of property", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Age of Property"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
     Chart7_1 = go.Figure(data=[trace71, trace72, trace73, trace74, trace76, trace79], layout=layout)
 
     dataset81 = Scored_MidRange.groupby('Duration_Relates_to_the_tenure')[['DVlog','y_pred_LR_MM','y_pred_DT_MM','y_pred_RF_MM','y_pred_XGB_MM','y_pred_NN_MM','y_pred_ANN_MM','y_pred_DNN_MM']].mean().reset_index()
@@ -367,7 +367,7 @@ elif Choice == 'MidRange':
     # trace87 = go.Line(x=[custom_labels[val] for val in dataset81['Duration_Relates_to_the_tenure']], y=dataset81['y_pred_NN_MM'], name='Neural Networks', mode='lines',marker=dict(color='mediumturquoise'), showlegend=True)
      #trace88 = go.Line(x=[custom_labels[val] for val in dataset81['Duration_Relates_to_the_tenure']], y=dataset81['y_pred_ANN_MM'], name='Artificial Neural Networks', mode='lines',marker=dict(color='coral'), showlegend=True)
     trace89 = go.Line(x=[custom_labels[val] for val in dataset81['Duration_Relates_to_the_tenure']], y=dataset81['y_pred_DNN_MM'], name='Deep Neural Networks', mode='lines',marker=dict(color='goldenrod'), showlegend=True)
-    layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Property Ownership", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Property Type"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
+    layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Property Ownership", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Property Ownership"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
     Chart8_1 = go.Figure(data=[trace81, trace82, trace83, trace84, trace86, trace89], layout=layout)
 
     dataset91 = Scored_MidRange.groupby('MonthYear')[['DVlog','y_pred_LR_MM','y_pred_DT_MM','y_pred_RF_MM','y_pred_XGB_MM','y_pred_NN_MM','y_pred_ANN_MM','y_pred_DNN_MM']].mean().reset_index()
@@ -380,7 +380,7 @@ elif Choice == 'MidRange':
      #trace97 = go.Line(x=dataset91['MonthYear'], y=dataset91['y_pred_NN_MM'], name='Neural Networks', mode='lines',marker=dict(color='mediumturquoise'), showlegend=True)
      #trace98 = go.Line(x=dataset91['MonthYear'], y=dataset91['y_pred_ANN_MM'], name='Artificial Neural Networks', mode='lines',marker=dict(color='coral'), showlegend=True)
     trace99 = go.Line(x=dataset91['MonthYear'], y=dataset91['y_pred_DNN_MM'], name='Deep Neural Networks', mode='lines',marker=dict(color='goldenrod'), showlegend=True)
-    layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Time Period (In Months)", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Property Type"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
+    layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Time Period (In Months)", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Time Period (In Months)"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
     Chart9_1 = go.Figure(data=[trace91, trace92, trace93, trace94, trace96, trace99], layout=layout)
 elif Choice == 'Luxury':
     dataset61 = Scored_Luxury.groupby('Property_Type')[['DVlog','y_pred_LR_LM','y_pred_DT_LM','y_pred_RF_LM','y_pred_XGB_LM','y_pred_NN_LM','y_pred_ANN_LM','y_pred_DNN_LM']].mean().reset_index()
@@ -408,7 +408,7 @@ elif Choice == 'Luxury':
     # trace77 = go.Line(x=[custom_labels[val] for val in dataset71['New_Property']], y=dataset71['y_pred_NN_LM'], name='Neural Networks', mode='lines',marker=dict(color='mediumturquoise'), showlegend=True)
      #trace78 = go.Line(x=[custom_labels[val] for val in dataset71['New_Property']], y=dataset71['y_pred_ANN_LM'], name='Artificial Neural Networks', mode='lines',marker=dict(color='coral'), showlegend=True)
     trace79 = go.Line(x=[custom_labels[val] for val in dataset71['New_Property']], y=dataset71['y_pred_DNN_LM'], name='Deep Neural Networks', mode='lines',marker=dict(color='goldenrod'), showlegend=True)
-    layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Age of property", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Property Type"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
+    layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Age of property", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Age of Property"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
     Chart7_1 = go.Figure(data=[trace71, trace72, trace73, trace74, trace76, trace79], layout=layout)
 
     dataset81 = Scored_Luxury.groupby('Duration_Relates_to_the_tenure')[['DVlog','y_pred_LR_LM','y_pred_DT_LM','y_pred_RF_LM','y_pred_XGB_LM','y_pred_NN_LM','y_pred_ANN_LM','y_pred_DNN_LM']].mean().reset_index()
@@ -422,7 +422,7 @@ elif Choice == 'Luxury':
     # trace87 = go.Line(x=[custom_labels[val] for val in dataset81['Duration_Relates_to_the_tenure']], y=dataset81['y_pred_NN_LM'], name='Neural Networks', mode='lines',marker=dict(color='mediumturquoise'), showlegend=True)
      #trace88 = go.Line(x=[custom_labels[val] for val in dataset81['Duration_Relates_to_the_tenure']], y=dataset81['y_pred_ANN_LM'], name='Artificial Neural Networks', mode='lines',marker=dict(color='coral'), showlegend=True)
     trace89 = go.Line(x=[custom_labels[val] for val in dataset81['Duration_Relates_to_the_tenure']], y=dataset81['y_pred_DNN_LM'], name='Deep Neural Networks', mode='lines',marker=dict(color='goldenrod'), showlegend=True)
-    layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Property Ownership", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Property Type"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
+    layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Property Ownership", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Property Ownership"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
     Chart8_1 = go.Figure(data=[trace81, trace82, trace83, trace84, trace86, trace89], layout=layout)
 
     dataset91 = Scored_Luxury.groupby('MonthYear')[['DVlog','y_pred_LR_LM','y_pred_DT_LM','y_pred_RF_LM','y_pred_XGB_LM','y_pred_NN_LM','y_pred_ANN_LM','y_pred_DNN_LM']].mean().reset_index()
@@ -435,7 +435,7 @@ elif Choice == 'Luxury':
     # trace97 = go.Line(x=dataset91['MonthYear'], y=dataset91['y_pred_NN_LM'], name='Neural Networks', mode='lines',marker=dict(color='mediumturquoise'), showlegend=True)
      #trace98 = go.Line(x=dataset91['MonthYear'], y=dataset91['y_pred_ANN_LM'], name='Artificial Neural Networks', mode='lines',marker=dict(color='coral'), showlegend=True)
     trace99 = go.Line(x=dataset91['MonthYear'], y=dataset91['y_pred_DNN_LM'], name='Deep Neural Networks', mode='lines',marker=dict(color='goldenrod'), showlegend=True)
-    layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Time Period (In Months)", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Property Type"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
+    layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Time Period (In Months)", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title=" Time Period (In Months)"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
     Chart9_1 = go.Figure(data=[trace91, trace92, trace93, trace94, trace96, trace99], layout=layout)
 else:
     st.markdown("No selection or no data present")
