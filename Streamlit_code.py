@@ -274,7 +274,7 @@ Choice = st.radio('Please select Home Segment', ['Affordable','MidRange','Luxury
 if Choice == 'Affordable':
     dataset61 = Scored_Affordable.groupby('Property_Type')[['DVlog','y_pred_LR_AM','y_pred_DT_AM','y_pred_RF_AM','y_pred_XGB_AM','y_pred_NN_AM','y_pred_ANN_AM','y_pred_DNN_AM']].mean().reset_index()
     custom_labels = {"D": "Detached", "F": "Flats/Maisonettes", "T": "Terraced", "S": "Semi-Detached", "O": "Other"}
-    trace61 = go.Line(x=[custom_labels[val] for val in dataset61['Property_Type']], y=dataset61['DVlog'], name="Actual Price", mode='lines', marker=dict(color='green'), showlegend=True)
+    trace61 = go.Line(x=[custom_labels[val] for val in dataset61['Property_Type']], y=dataset61['DVlog'], name="Actual Price", mode='lines', marker=dict(color='red'), showlegend=True)
     trace62 = go.Line(x=[custom_labels[val] for val in dataset61['Property_Type']], y=dataset61['y_pred_LR_AM'], name="Linear Regression", mode='lines', marker=dict(color='deepskyblue'), showlegend=True)
     trace63 = go.Line(x=[custom_labels[val] for val in dataset61['Property_Type']], y=dataset61['y_pred_DT_AM'], name="Decision Tree", mode='lines',marker=dict(color='burlywood'), showlegend=True)
     trace64 = go.Line(x=[custom_labels[val] for val in dataset61['Property_Type']], y=dataset61['y_pred_RF_AM'], name='Random Forest', mode='lines',marker=dict(color='yellowgreen'), showlegend=True)
