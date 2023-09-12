@@ -284,7 +284,7 @@ if Choice == 'Affordable':
      #trace68 = go.Line(x=[custom_labels[val] for val in dataset61['Property_Type']], y=dataset61['y_pred_ANN_AM'], name='Artificial Neural Networks', mode='lines',marker=dict(color='coral'), showlegend=True)
     trace69 = go.Line(x=[custom_labels[val] for val in dataset61['Property_Type']], y=dataset61['y_pred_DNN_AM'], name='Deep Neural Networks', mode='lines',marker=dict(color='goldenrod'), showlegend=True)
     layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Property Type", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Property Type"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
-    Chart6_1 = go.Figure(data=[trace61, trace62, trace63, trace64, trace66, trace67, trace68, trace69], layout=layout)
+    Chart6_1 = go.Figure(data=[trace61, trace62, trace63, trace64, trace66, trace69], layout=layout)
 
     dataset71 = Scored_Affordable.groupby('New_Property')[['DVlog','y_pred_LR_AM','y_pred_DT_AM','y_pred_RF_AM','y_pred_XGB_AM','y_pred_NN_AM','y_pred_ANN_AM','y_pred_DNN_AM']].mean().reset_index()
     custom_labels = {"Y": "Newly Built Property", "N": "Established Residential Building"}
