@@ -140,7 +140,7 @@ layout = go.Layout(title=dict(text="Number of Homes vs Dependent Variable by Ten
 Chart1_3 = go.Figure(data=[trace31, trace32], layout=layout)
 
 #MonthYear
-trace41 = go.Bar(x=MonthYear_Filter['Values'], y=MonthYear_Filter['Count'], name="Number of Loans", marker=dict(color='cornflowerblue'))
+trace41 = go.Bar(x=MonthYear_Filter['Values'], y=MonthYear_Filter['Count'], name="Number of Homes", marker=dict(color='cornflowerblue'))
 trace42 = go.Scatter(x=MonthYear_Filter['Values'], y=MonthYear_Filter['AvgDV'], mode='lines', name="AvgDV", yaxis='y2', line=dict(color='red'))
 layout = go.Layout(title=dict(text="Number of Homes vs Dependent Variable by Months", font=dict(size=16)), xaxis=dict(title="Time Period (In Month Year)", tickfont=dict(size=12)), yaxis=dict(title="Number of Homes", tickfont=dict(size=12), range=[0, MonthYear_Filter['Count'].max()], tick0=0, dtick=100000, showgrid=False), yaxis2=dict(title="Average Dependent Variable", tickfont=dict(size=12), overlaying='y', side='right', range=[0, MonthYear_Filter['AvgDV'].max()], tick0=0, dtick=100000, showgrid=False), paper_bgcolor='white', plot_bgcolor='white', font=dict(color='grey', size=12), showlegend=True, legend=dict(orientation='v', x=1, y=1.2))
 Chart1_4 = go.Figure(data=[trace41, trace42], layout=layout)
@@ -231,6 +231,10 @@ with right_column1:
 
 MevalMetric = MevalMetric.set_index('Model Name', drop=True)
 st.write(MevalMetric)
+st.markdown("Note: The scale of Dependent variable(Price of Home) is between Thousands and Millions")
+st.markdown("The Error residue is computed based on actual(Price - predicted(Y-Predicted). ")
+st.markdown("So the error Matrix Y-axis scale in chart will be high")
+st.markdown("As a thumb rule lower the error better the model")
 st.markdown("<hr style='margin: 5px 0; padding: 0;'>", unsafe_allow_html=True)
 
 st.markdown("<hr style='margin: 5px 0; padding: 0;'>", unsafe_allow_html=True)
