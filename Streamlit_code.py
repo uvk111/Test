@@ -273,7 +273,7 @@ st.markdown("""""")
 st.markdown("<h1 style='font-size: 16px; margin: 0; padding: 0;'>Model Test Scores</h1>", unsafe_allow_html=True)
 st.markdown("""""")
 
-Choice = st.radio('Please select Home Segment', ['Affordable','MidRange','Luxury'])
+Choice = st.radio('Please select Home Segment', ['Affordable','Mid_Range','Luxury'])
 if Choice == 'Affordable':
     dataset61 = Scored_Affordable.groupby('Property_Type')[['DVlog','y_pred_LR_AM','y_pred_DT_AM','y_pred_RF_AM','y_pred_XGB_AM','y_pred_NN_AM','y_pred_ANN_AM','y_pred_DNN_AM']].mean().reset_index()
     custom_labels = {"D": "Detached", "F": "Flats/Maisonettes", "T": "Terraced", "S": "Semi-Detached", "O": "Other"}
@@ -330,7 +330,7 @@ if Choice == 'Affordable':
     layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Time Period (In Months)", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Time Period (In Months)"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
     Chart9_1 = go.Figure(data=[trace91, trace92, trace93, trace94, trace96, trace99], layout=layout)
 
-elif Choice == 'MidRange':
+elif Choice == 'Mid_Range':
     dataset61 = Scored_MidRange.groupby('Property_Type')[['DVlog','y_pred_LR_MM','y_pred_DT_MM','y_pred_RF_MM','y_pred_XGB_MM','y_pred_NN_MM','y_pred_ANN_MM','y_pred_DNN_MM']].mean().reset_index()
     custom_labels = {"D": "Detached", "F": "Flats/Maisonettes", "T": "Terraced", "S": "Semi-Detached", "O": "Other"}
     trace61 = go.Line(x=[custom_labels[val] for val in dataset61['Property_Type']], y=dataset61['DVlog'], name="Actual Price", mode='lines', marker=dict(color='red'), showlegend=True)
