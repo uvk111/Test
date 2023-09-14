@@ -275,9 +275,9 @@ st.markdown("""""")
 
 Choice = st.radio('Please select Home Segment', ['Affordable','Mid_Range','Luxury'])
 if Choice == 'Affordable':
-    dataset61 = Scored_Affordable.groupby('Property_Type')[['DVlog','y_pred_LR_AM','y_pred_DT_AM','y_pred_RF_AM','y_pred_XGB_AM','y_pred_NN_AM','y_pred_ANN_AM','y_pred_DNN_AM']].mean().reset_index()
+    dataset61 = Scored_Affordable.groupby('Property_Type')[['DV','y_pred_LR_AM','y_pred_DT_AM','y_pred_RF_AM','y_pred_XGB_AM','y_pred_NN_AM','y_pred_ANN_AM','y_pred_DNN_AM']].mean().reset_index()
     custom_labels = {"D": "Detached", "F": "Flats/Maisonettes", "T": "Terraced", "S": "Semi-Detached", "O": "Other"}
-    trace61 = go.Line(x=[custom_labels[val] for val in dataset61['Property_Type']], y=dataset61['DVlog'], name="Actual Price", mode='lines', marker=dict(color='red'), showlegend=True)
+    trace61 = go.Line(x=[custom_labels[val] for val in dataset61['Property_Type']], y=dataset61['DV'], name="Actual Price", mode='lines', marker=dict(color='red'), showlegend=True)
     trace62 = go.Line(x=[custom_labels[val] for val in dataset61['Property_Type']], y=dataset61['y_pred_LR_AM'], name="Linear Regression", mode='lines', marker=dict(color='deepskyblue'), showlegend=True)
     trace63 = go.Line(x=[custom_labels[val] for val in dataset61['Property_Type']], y=dataset61['y_pred_DT_AM'], name="Decision Tree", mode='lines',marker=dict(color='burlywood'), showlegend=True)
     trace64 = go.Line(x=[custom_labels[val] for val in dataset61['Property_Type']], y=dataset61['y_pred_RF_AM'], name='Random Forest', mode='lines',marker=dict(color='blue'), showlegend=True)
@@ -289,9 +289,9 @@ if Choice == 'Affordable':
     layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Property Type", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Property Type"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
     Chart6_1 = go.Figure(data=[trace61, trace62, trace63, trace64, trace66, trace69], layout=layout)
 
-    dataset71 = Scored_Affordable.groupby('New_Property')[['DVlog','y_pred_LR_AM','y_pred_DT_AM','y_pred_RF_AM','y_pred_XGB_AM','y_pred_NN_AM','y_pred_ANN_AM','y_pred_DNN_AM']].mean().reset_index()
+    dataset71 = Scored_Affordable.groupby('New_Property')[['DV','y_pred_LR_AM','y_pred_DT_AM','y_pred_RF_AM','y_pred_XGB_AM','y_pred_NN_AM','y_pred_ANN_AM','y_pred_DNN_AM']].mean().reset_index()
     custom_labels = {"Y": "Newly Built Property", "N": "Established Residential Building"}
-    trace71 = go.Line(x=[custom_labels[val] for val in dataset71['New_Property']], y=dataset71['DVlog'], name="Actual Price", mode='lines', marker=dict(color='red'), showlegend=True)
+    trace71 = go.Line(x=[custom_labels[val] for val in dataset71['New_Property']], y=dataset71['DV'], name="Actual Price", mode='lines', marker=dict(color='red'), showlegend=True)
     trace72 = go.Line(x=[custom_labels[val] for val in dataset71['New_Property']], y=dataset71['y_pred_LR_AM'], name="Linear Regression", mode='lines', marker=dict(color='deepskyblue'), showlegend=True)
     trace73 = go.Line(x=[custom_labels[val] for val in dataset71['New_Property']], y=dataset71['y_pred_DT_AM'], name="Decision Tree", mode='lines',marker=dict(color='burlywood'), showlegend=True)
     trace74 = go.Line(x=[custom_labels[val] for val in dataset71['New_Property']], y=dataset71['y_pred_RF_AM'], name='Random Forest', mode='lines',marker=dict(color='blue'), showlegend=True)
@@ -303,9 +303,9 @@ if Choice == 'Affordable':
     layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Age of property", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Age of Property"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
     Chart7_1 = go.Figure(data=[trace71, trace72, trace73, trace74, trace76, trace79], layout=layout)
 
-    dataset81 = Scored_Affordable.groupby('Duration_Relates_to_the_tenure')[['DVlog','y_pred_LR_AM','y_pred_DT_AM','y_pred_RF_AM','y_pred_XGB_AM','y_pred_NN_AM','y_pred_ANN_AM','y_pred_DNN_AM']].mean().reset_index()
+    dataset81 = Scored_Affordable.groupby('Duration_Relates_to_the_tenure')[['DV','y_pred_LR_AM','y_pred_DT_AM','y_pred_RF_AM','y_pred_XGB_AM','y_pred_NN_AM','y_pred_ANN_AM','y_pred_DNN_AM']].mean().reset_index()
     custom_labels = {"F": "Freehold", "L": "Leasehold "}
-    trace81 = go.Line(x=[custom_labels[val] for val in dataset81['Duration_Relates_to_the_tenure']], y=dataset81['DVlog'], name="Actual Price", mode='lines', marker=dict(color='red'), showlegend=True)
+    trace81 = go.Line(x=[custom_labels[val] for val in dataset81['Duration_Relates_to_the_tenure']], y=dataset81['DV'], name="Actual Price", mode='lines', marker=dict(color='red'), showlegend=True)
     trace82 = go.Line(x=[custom_labels[val] for val in dataset81['Duration_Relates_to_the_tenure']], y=dataset81['y_pred_LR_AM'], name="Linear Regression", mode='lines', marker=dict(color='deepskyblue'), showlegend=True)
     trace83 = go.Line(x=[custom_labels[val] for val in dataset81['Duration_Relates_to_the_tenure']], y=dataset81['y_pred_DT_AM'], name="Decision Tree", mode='lines',marker=dict(color='burlywood'), showlegend=True)
     trace84 = go.Line(x=[custom_labels[val] for val in dataset81['Duration_Relates_to_the_tenure']], y=dataset81['y_pred_RF_AM'], name='Random Forest', mode='lines',marker=dict(color='blue'), showlegend=True)
@@ -317,8 +317,8 @@ if Choice == 'Affordable':
     layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Property Ownership", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Property Ownership"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
     Chart8_1 = go.Figure(data=[trace81, trace82, trace83, trace84, trace86, trace89], layout=layout)
 
-    dataset91 = Scored_Affordable.groupby('MonthYear')[['DVlog','y_pred_LR_AM','y_pred_DT_AM','y_pred_RF_AM','y_pred_XGB_AM','y_pred_NN_AM','y_pred_ANN_AM','y_pred_DNN_AM']].mean().reset_index()
-    trace91 = go.Line(x=dataset91['MonthYear'], y=dataset91['DVlog'], name="Actual Price", mode='lines', marker=dict(color='red'), showlegend=True)
+    dataset91 = Scored_Affordable.groupby('MonthYear')[['DV','y_pred_LR_AM','y_pred_DT_AM','y_pred_RF_AM','y_pred_XGB_AM','y_pred_NN_AM','y_pred_ANN_AM','y_pred_DNN_AM']].mean().reset_index()
+    trace91 = go.Line(x=dataset91['MonthYear'], y=dataset91['DV'], name="Actual Price", mode='lines', marker=dict(color='red'), showlegend=True)
     trace92 = go.Line(x=dataset91['MonthYear'], y=dataset91['y_pred_LR_AM'], name="Linear Regression", mode='lines', marker=dict(color='deepskyblue'), showlegend=True)
     trace93 = go.Line(x=dataset91['MonthYear'], y=dataset91['y_pred_DT_AM'], name="Decision Tree", mode='lines',marker=dict(color='burlywood'), showlegend=True)
     trace94 = go.Line(x=dataset91['MonthYear'], y=dataset91['y_pred_RF_AM'], name='Random Forest', mode='lines',marker=dict(color='blue'), showlegend=True)
@@ -331,9 +331,9 @@ if Choice == 'Affordable':
     Chart9_1 = go.Figure(data=[trace91, trace92, trace93, trace94, trace96, trace99], layout=layout)
 
 elif Choice == 'Mid_Range':
-    dataset61 = Scored_MidRange.groupby('Property_Type')[['DVlog','y_pred_LR_MM','y_pred_DT_MM','y_pred_RF_MM','y_pred_XGB_MM','y_pred_NN_MM','y_pred_ANN_MM','y_pred_DNN_MM']].mean().reset_index()
+    dataset61 = Scored_MidRange.groupby('Property_Type')[['DV','y_pred_LR_MM','y_pred_DT_MM','y_pred_RF_MM','y_pred_XGB_MM','y_pred_NN_MM','y_pred_ANN_MM','y_pred_DNN_MM']].mean().reset_index()
     custom_labels = {"D": "Detached", "F": "Flats/Maisonettes", "T": "Terraced", "S": "Semi-Detached", "O": "Other"}
-    trace61 = go.Line(x=[custom_labels[val] for val in dataset61['Property_Type']], y=dataset61['DVlog'], name="Actual Price", mode='lines', marker=dict(color='red'), showlegend=True)
+    trace61 = go.Line(x=[custom_labels[val] for val in dataset61['Property_Type']], y=dataset61['DV'], name="Actual Price", mode='lines', marker=dict(color='red'), showlegend=True)
     trace62 = go.Line(x=[custom_labels[val] for val in dataset61['Property_Type']], y=dataset61['y_pred_LR_MM'], name="Linear Regression", mode='lines', marker=dict(color='deepskyblue'), showlegend=True)
     trace63 = go.Line(x=[custom_labels[val] for val in dataset61['Property_Type']], y=dataset61['y_pred_DT_MM'], name="Decision Tree", mode='lines',marker=dict(color='burlywood'), showlegend=True)
     trace64 = go.Line(x=[custom_labels[val] for val in dataset61['Property_Type']], y=dataset61['y_pred_RF_MM'], name='Random Forest', mode='lines',marker=dict(color='blue'), showlegend=True)
@@ -345,9 +345,9 @@ elif Choice == 'Mid_Range':
     layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Property Type", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Property Type"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
     Chart6_1 = go.Figure(data=[trace61, trace62, trace63, trace64, trace66, trace69], layout=layout)
 
-    dataset71 = Scored_MidRange.groupby('New_Property')[['DVlog','y_pred_LR_MM','y_pred_DT_MM','y_pred_RF_MM','y_pred_XGB_MM','y_pred_NN_MM','y_pred_ANN_MM','y_pred_DNN_MM']].mean().reset_index()
+    dataset71 = Scored_MidRange.groupby('New_Property')[['DV','y_pred_LR_MM','y_pred_DT_MM','y_pred_RF_MM','y_pred_XGB_MM','y_pred_NN_MM','y_pred_ANN_MM','y_pred_DNN_MM']].mean().reset_index()
     custom_labels = {"Y": "Newly Built Property", "N": "Established Residential Building"}
-    trace71 = go.Line(x=[custom_labels[val] for val in dataset71['New_Property']], y=dataset71['DVlog'], name="Actual Price", mode='lines', marker=dict(color='red'), showlegend=True)
+    trace71 = go.Line(x=[custom_labels[val] for val in dataset71['New_Property']], y=dataset71['DV'], name="Actual Price", mode='lines', marker=dict(color='red'), showlegend=True)
     trace72 = go.Line(x=[custom_labels[val] for val in dataset71['New_Property']], y=dataset71['y_pred_LR_MM'], name="Linear Regression", mode='lines', marker=dict(color='deepskyblue'), showlegend=True)
     trace73 = go.Line(x=[custom_labels[val] for val in dataset71['New_Property']], y=dataset71['y_pred_DT_MM'], name="Decision Tree", mode='lines',marker=dict(color='burlywood'), showlegend=True)
     trace74 = go.Line(x=[custom_labels[val] for val in dataset71['New_Property']], y=dataset71['y_pred_RF_MM'], name='Random Forest', mode='lines',marker=dict(color='blue'), showlegend=True)
@@ -359,9 +359,9 @@ elif Choice == 'Mid_Range':
     layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Age of property", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Age of Property"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
     Chart7_1 = go.Figure(data=[trace71, trace72, trace73, trace74, trace76, trace79], layout=layout)
 
-    dataset81 = Scored_MidRange.groupby('Duration_Relates_to_the_tenure')[['DVlog','y_pred_LR_MM','y_pred_DT_MM','y_pred_RF_MM','y_pred_XGB_MM','y_pred_NN_MM','y_pred_ANN_MM','y_pred_DNN_MM']].mean().reset_index()
+    dataset81 = Scored_MidRange.groupby('Duration_Relates_to_the_tenure')[['DV','y_pred_LR_MM','y_pred_DT_MM','y_pred_RF_MM','y_pred_XGB_MM','y_pred_NN_MM','y_pred_ANN_MM','y_pred_DNN_MM']].mean().reset_index()
     custom_labels = {"F": "Freehold", "L": "Leasehold "}
-    trace81 = go.Line(x=[custom_labels[val] for val in dataset81['Duration_Relates_to_the_tenure']], y=dataset81['DVlog'], name="Actual Price", mode='lines', marker=dict(color='red'), showlegend=True)
+    trace81 = go.Line(x=[custom_labels[val] for val in dataset81['Duration_Relates_to_the_tenure']], y=dataset81['DV'], name="Actual Price", mode='lines', marker=dict(color='red'), showlegend=True)
     trace82 = go.Line(x=[custom_labels[val] for val in dataset81['Duration_Relates_to_the_tenure']], y=dataset81['y_pred_LR_MM'], name="Linear Regression", mode='lines', marker=dict(color='deepskyblue'), showlegend=True)
     trace83 = go.Line(x=[custom_labels[val] for val in dataset81['Duration_Relates_to_the_tenure']], y=dataset81['y_pred_DT_MM'], name="Decision Tree", mode='lines',marker=dict(color='burlywood'), showlegend=True)
     trace84 = go.Line(x=[custom_labels[val] for val in dataset81['Duration_Relates_to_the_tenure']], y=dataset81['y_pred_RF_MM'], name='Random Forest', mode='lines',marker=dict(color='blue'), showlegend=True)
@@ -373,8 +373,8 @@ elif Choice == 'Mid_Range':
     layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Property Ownership", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Property Ownership"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
     Chart8_1 = go.Figure(data=[trace81, trace82, trace83, trace84, trace86, trace89], layout=layout)
 
-    dataset91 = Scored_MidRange.groupby('MonthYear')[['DVlog','y_pred_LR_MM','y_pred_DT_MM','y_pred_RF_MM','y_pred_XGB_MM','y_pred_NN_MM','y_pred_ANN_MM','y_pred_DNN_MM']].mean().reset_index()
-    trace91 = go.Line(x=dataset91['MonthYear'], y=dataset91['DVlog'], name="Actual Price", mode='lines', marker=dict(color='red'), showlegend=True)
+    dataset91 = Scored_MidRange.groupby('MonthYear')[['DV','y_pred_LR_MM','y_pred_DT_MM','y_pred_RF_MM','y_pred_XGB_MM','y_pred_NN_MM','y_pred_ANN_MM','y_pred_DNN_MM']].mean().reset_index()
+    trace91 = go.Line(x=dataset91['MonthYear'], y=dataset91['DV'], name="Actual Price", mode='lines', marker=dict(color='red'), showlegend=True)
     trace92 = go.Line(x=dataset91['MonthYear'], y=dataset91['y_pred_LR_MM'], name="Linear Regression", mode='lines', marker=dict(color='deepskyblue'), showlegend=True)
     trace93 = go.Line(x=dataset91['MonthYear'], y=dataset91['y_pred_DT_MM'], name="Decision Tree", mode='lines',marker=dict(color='burlywood'), showlegend=True)
     trace94 = go.Line(x=dataset91['MonthYear'], y=dataset91['y_pred_RF_MM'], name='Random Forest', mode='lines',marker=dict(color='blue'), showlegend=True)
@@ -386,9 +386,9 @@ elif Choice == 'Mid_Range':
     layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Time Period (In Months)", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Time Period (In Months)"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
     Chart9_1 = go.Figure(data=[trace91, trace92, trace93, trace94, trace96, trace99], layout=layout)
 elif Choice == 'Luxury':
-    dataset61 = Scored_Luxury.groupby('Property_Type')[['DVlog','y_pred_LR_LM','y_pred_DT_LM','y_pred_RF_LM','y_pred_XGB_LM','y_pred_NN_LM','y_pred_ANN_LM','y_pred_DNN_LM']].mean().reset_index()
+    dataset61 = Scored_Luxury.groupby('Property_Type')[['DV','y_pred_LR_LM','y_pred_DT_LM','y_pred_RF_LM','y_pred_XGB_LM','y_pred_NN_LM','y_pred_ANN_LM','y_pred_DNN_LM']].mean().reset_index()
     custom_labels = {"D": "Detached", "F": "Flats/Maisonettes", "T": "Terraced", "S": "Semi-Detached", "O": "Other"}
-    trace61 = go.Line(x=[custom_labels[val] for val in dataset61['Property_Type']], y=dataset61['DVlog'], name="Actual Price", mode='lines', marker=dict(color='red'), showlegend=True)
+    trace61 = go.Line(x=[custom_labels[val] for val in dataset61['Property_Type']], y=dataset61['DV'], name="Actual Price", mode='lines', marker=dict(color='red'), showlegend=True)
     trace62 = go.Line(x=[custom_labels[val] for val in dataset61['Property_Type']], y=dataset61['y_pred_LR_LM'], name="Linear Regression", mode='lines', marker=dict(color='deepskyblue'), showlegend=True)
     trace63 = go.Line(x=[custom_labels[val] for val in dataset61['Property_Type']], y=dataset61['y_pred_DT_LM'], name="Decision Tree", mode='lines',marker=dict(color='burlywood'), showlegend=True)
     trace64 = go.Line(x=[custom_labels[val] for val in dataset61['Property_Type']], y=dataset61['y_pred_RF_LM'], name='Random Forest', mode='lines',marker=dict(color='blue'), showlegend=True)
@@ -400,9 +400,9 @@ elif Choice == 'Luxury':
     layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Property Type", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Property Type"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
     Chart6_1 = go.Figure(data=[trace61, trace62, trace63, trace64, trace66, trace69], layout=layout)
 
-    dataset71 = Scored_Luxury.groupby('New_Property')[['DVlog','y_pred_LR_LM','y_pred_DT_LM','y_pred_RF_LM','y_pred_XGB_LM','y_pred_NN_LM','y_pred_ANN_LM','y_pred_DNN_LM']].mean().reset_index()
+    dataset71 = Scored_Luxury.groupby('New_Property')[['DV','y_pred_LR_LM','y_pred_DT_LM','y_pred_RF_LM','y_pred_XGB_LM','y_pred_NN_LM','y_pred_ANN_LM','y_pred_DNN_LM']].mean().reset_index()
     custom_labels = {"Y": "Newly Built Property", "N": "Established Residential Building"}
-    trace71 = go.Line(x=[custom_labels[val] for val in dataset71['New_Property']], y=dataset71['DVlog'], name="Actual Price", mode='lines', marker=dict(color='red'), showlegend=True)
+    trace71 = go.Line(x=[custom_labels[val] for val in dataset71['New_Property']], y=dataset71['DV'], name="Actual Price", mode='lines', marker=dict(color='red'), showlegend=True)
     trace72 = go.Line(x=[custom_labels[val] for val in dataset71['New_Property']], y=dataset71['y_pred_LR_LM'], name="Linear Regression", mode='lines', marker=dict(color='deepskyblue'), showlegend=True)
     trace73 = go.Line(x=[custom_labels[val] for val in dataset71['New_Property']], y=dataset71['y_pred_DT_LM'], name="Decision Tree", mode='lines',marker=dict(color='burlywood'), showlegend=True)
     trace74 = go.Line(x=[custom_labels[val] for val in dataset71['New_Property']], y=dataset71['y_pred_RF_LM'], name='Random Forest', mode='lines',marker=dict(color='blue'), showlegend=True)
@@ -414,9 +414,9 @@ elif Choice == 'Luxury':
     layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Age of property", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Age of Property"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
     Chart7_1 = go.Figure(data=[trace71, trace72, trace73, trace74, trace76, trace79], layout=layout)
 
-    dataset81 = Scored_Luxury.groupby('Duration_Relates_to_the_tenure')[['DVlog','y_pred_LR_LM','y_pred_DT_LM','y_pred_RF_LM','y_pred_XGB_LM','y_pred_NN_LM','y_pred_ANN_LM','y_pred_DNN_LM']].mean().reset_index()
+    dataset81 = Scored_Luxury.groupby('Duration_Relates_to_the_tenure')[['DV','y_pred_LR_LM','y_pred_DT_LM','y_pred_RF_LM','y_pred_XGB_LM','y_pred_NN_LM','y_pred_ANN_LM','y_pred_DNN_LM']].mean().reset_index()
     custom_labels = {"F": "Freehold", "L": "Leasehold "}
-    trace81 = go.Line(x=[custom_labels[val] for val in dataset81['Duration_Relates_to_the_tenure']], y=dataset81['DVlog'], name="Actual Price", mode='lines', marker=dict(color='red'), showlegend=True)
+    trace81 = go.Line(x=[custom_labels[val] for val in dataset81['Duration_Relates_to_the_tenure']], y=dataset81['DV'], name="Actual Price", mode='lines', marker=dict(color='red'), showlegend=True)
     trace82 = go.Line(x=[custom_labels[val] for val in dataset81['Duration_Relates_to_the_tenure']], y=dataset81['y_pred_LR_LM'], name="Linear Regression", mode='lines', marker=dict(color='deepskyblue'), showlegend=True)
     trace83 = go.Line(x=[custom_labels[val] for val in dataset81['Duration_Relates_to_the_tenure']], y=dataset81['y_pred_DT_LM'], name="Decision Tree", mode='lines',marker=dict(color='burlywood'), showlegend=True)
     trace84 = go.Line(x=[custom_labels[val] for val in dataset81['Duration_Relates_to_the_tenure']], y=dataset81['y_pred_RF_LM'], name='Random Forest', mode='lines',marker=dict(color='blue'), showlegend=True)
@@ -428,8 +428,8 @@ elif Choice == 'Luxury':
     layout = go.Layout(title=dict(text="Testset - Actual vs Predicted by Property Ownership", font=dict(size=16)),plot_bgcolor='white', paper_bgcolor='white',xaxis=dict(title="Property Ownership"), yaxis=dict(title="Actual vs Predicted",titlefont=dict(size=14)))
     Chart8_1 = go.Figure(data=[trace81, trace82, trace83, trace84, trace86, trace89], layout=layout)
 
-    dataset91 = Scored_Luxury.groupby('MonthYear')[['DVlog','y_pred_LR_LM','y_pred_DT_LM','y_pred_RF_LM','y_pred_XGB_LM','y_pred_NN_LM','y_pred_ANN_LM','y_pred_DNN_LM']].mean().reset_index()
-    trace91 = go.Line(x=dataset91['MonthYear'], y=dataset91['DVlog'], name="Actual Price", mode='lines', marker=dict(color='red'), showlegend=True)
+    dataset91 = Scored_Luxury.groupby('MonthYear')[['DV','y_pred_LR_LM','y_pred_DT_LM','y_pred_RF_LM','y_pred_XGB_LM','y_pred_NN_LM','y_pred_ANN_LM','y_pred_DNN_LM']].mean().reset_index()
+    trace91 = go.Line(x=dataset91['MonthYear'], y=dataset91['DV'], name="Actual Price", mode='lines', marker=dict(color='red'), showlegend=True)
     trace92 = go.Line(x=dataset91['MonthYear'], y=dataset91['y_pred_LR_LM'], name="Linear Regression", mode='lines', marker=dict(color='deepskyblue'), showlegend=True)
     trace93 = go.Line(x=dataset91['MonthYear'], y=dataset91['y_pred_DT_LM'], name="Decision Tree", mode='lines',marker=dict(color='burlywood'), showlegend=True)
     trace94 = go.Line(x=dataset91['MonthYear'], y=dataset91['y_pred_RF_LM'], name='Random Forest', mode='lines',marker=dict(color='blue'), showlegend=True)
