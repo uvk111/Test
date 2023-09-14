@@ -146,11 +146,11 @@ layout = go.Layout(title=dict(text="Home Price by Property Ownership", font=dict
 Chart1_3 = go.Figure(data=[trace31, trace32], layout=layout)
 
 #MonthYear
-custom_months = ['Jan2023','Feb2023','Mar2023','Apr2023','May2023','Jun2023','Jul2023']
-custom_labels = {"Jan2023": "Jan2023", "Feb2023": "Feb2023", "Mar2023": "Mar2023", "Apr2023": "Apr2023", "May2023": "May2023", "Jun2023": "Jun2023", "Jul2023": "Jul2023"}
+# custom_months = ['Jan2023','Feb2023','Mar2023','Apr2023','May2023','Jun2023','Jul2023']
+# custom_labels = {"Jan2023": "Jan2023", "Feb2023": "Feb2023", "Mar2023": "Mar2023", "Apr2023": "Apr2023", "May2023": "May2023", "Jun2023": "Jun2023", "Jul2023": "Jul2023"}
 bar_colors = ["royalblue", "yellowgreen", "crimson", "goldenrod", "deeppink", "rosybrown", "olivedrab"]
-trace41 = go.Bar(x=[custom_labels[val] for val in MonthYear_Filter['Unique_Values']], y=MonthYear_Filter['Count'], name="Number of Homes", marker=dict(color=bar_colors), text=[count for count in MonthYear_Filter['Count']], showlegend=False)
-trace42 = go.Scatter(x=[custom_labels[val] for val in MonthYear_Filter['Unique_Values']], y=MonthYear_Filter['AvgDV'], mode='lines', name="AvgDV", yaxis='y2', line=dict(color='red'))
+trace41 = go.Bar(x=MonthYear_Filter['Unique_Values'], y=MonthYear_Filter['Count'], name="Number of Homes", marker=dict(color=bar_colors), text=[count for count in MonthYear_Filter['Count']], showlegend=False)
+trace42 = go.Scatter(x=MonthYear_Filter['Unique_Values'], y=MonthYear_Filter['AvgDV'], mode='lines', name="AvgDV", yaxis='y2', line=dict(color='red'))
 layout = go.Layout(title=dict(text="Home Price by Time Period (In Months)", font=dict(size=16), y=0.99), xaxis=dict(title="Time Period (In Months)", tickfont=dict(size=12)), yaxis=dict(title="Number of Homes",tickfont=dict(size=12), range=[0, MonthYear_Filter['Count'].max()], tick0=0, dtick=100000, showgrid=False), yaxis2=dict(title="Average Dependent Variable", tickfont=dict(size=12), overlaying='y', side='right', range=[0, MonthYear_Filter['AvgDV'].max()], tick0=0, dtick=100000, showgrid=False), paper_bgcolor='white', plot_bgcolor='white', font=dict(color='grey', size=12), showlegend=True, legend=dict(orientation='v', x=1, y=1.2))
 Chart1_4 = go.Figure(data=[trace41, trace42], layout=layout)
 
