@@ -109,6 +109,32 @@ st.dataframe(summaryCategorical_Treated, use_container_width=True)
 
 st.markdown("<hr style='margin: 5px 0; padding: 0;'>", unsafe_allow_html=True)
 
+
+
+#Segmentation
+st.markdown("""""")
+st.markdown("<h1 style='font-size: 16px; margin: 0; padding: 0;'>Home Price Segmentation using K-Means</h1>", unsafe_allow_html=True)
+st.markdown("""""")
+Aggdata2_1 = Initialdata.groupby('HomeSegment').agg(Count=('HomeSegment', 'size'), AvgDV=('Avg_home_price', 'mean')).reset_index()
+# trace21 = go.Bar(x=Aggdata2_1['HomeSegment'], y=Aggdata2_1['Count'], name="Number of Homes", marker=dict(color='cornflowerblue'))
+# trace22 = go.Scatter(x=Aggdata2_1['HomeSegment'], y=Aggdata2_1['AvgDV'], mode='lines', name="AvgDV", yaxis='y2', line=dict(color='red'))
+# layout = go.Layout(title=dict(text="Number of Homes vs Dependent Variable by Home Segments", font=dict(size=16)), xaxis=dict(title="K-Means Algorithm Home Segments", tickfont=dict(size=12)), yaxis=dict(title="Number of Homes", tickfont=dict(size=12), range=[0, Property_Type_Filter['Count'].max()], tick0=0, dtick=50000, showgrid=False), yaxis2=dict(title="Average Dependent Variable", tickfont=dict(size=12), overlaying='y', side='right', range=[0, Property_Type_Filter['AvgDV'].max()], tick0=0, dtick=100000, showgrid=False), paper_bgcolor='white', plot_bgcolor='white', font=dict(color='grey', size=12), showlegend=True, legend=dict(orientation='v', x=1, y=1.2))
+# Chart2_1 = go.Figure(data=[trace21, trace22], layout=layout)
+
+pie_colors = ["olivedrab", "salmon", "mediumslateblue"]
+trace22 = go.Pie(labels=Aggdata2_1['HomeSegment'],values=Aggdata2_1['Count'],hoverinfo='label+percent',marker=dict(colors=pie_colors,line=dict(color='white',width=0)))
+# layout = go.Layout(title='Pie Chart')
+Chart2_1 = go.Figure(data=[trace22])
+# , layout=layout)
+
+left_column2, right_column2 = st.columns([2, 2])
+with left_column2:
+    st.plotly_chart(Chart2_1, use_container_width=True)
+with right_column2:
+    st.write(Aggdata2_1)
+
+st.markdown("<hr style='margin: 5px 0; padding: 0;'>", unsafe_allow_html=True)
+
 #BIVARIATE ANALYSIS
 st.markdown("""""")
 st.markdown("<h1 style='font-size: 16px; margin: 0; padding: 0;'>Bivariate Analysis - Categorical Variables</h1>", unsafe_allow_html=True)
@@ -161,30 +187,6 @@ with left_column1:
 with right_column1:
     st.plotly_chart(Chart1_4, use_container_width=True)
     st.plotly_chart(Chart1_3, use_container_width=True)
-
-st.markdown("<hr style='margin: 5px 0; padding: 0;'>", unsafe_allow_html=True)
-
-#Segmentation
-st.markdown("""""")
-st.markdown("<h1 style='font-size: 16px; margin: 0; padding: 0;'>Home Price Segmentation using K-Means</h1>", unsafe_allow_html=True)
-st.markdown("""""")
-Aggdata2_1 = Initialdata.groupby('HomeSegment').agg(Count=('HomeSegment', 'size'), AvgDV=('Avg_home_price', 'mean')).reset_index()
-# trace21 = go.Bar(x=Aggdata2_1['HomeSegment'], y=Aggdata2_1['Count'], name="Number of Homes", marker=dict(color='cornflowerblue'))
-# trace22 = go.Scatter(x=Aggdata2_1['HomeSegment'], y=Aggdata2_1['AvgDV'], mode='lines', name="AvgDV", yaxis='y2', line=dict(color='red'))
-# layout = go.Layout(title=dict(text="Number of Homes vs Dependent Variable by Home Segments", font=dict(size=16)), xaxis=dict(title="K-Means Algorithm Home Segments", tickfont=dict(size=12)), yaxis=dict(title="Number of Homes", tickfont=dict(size=12), range=[0, Property_Type_Filter['Count'].max()], tick0=0, dtick=50000, showgrid=False), yaxis2=dict(title="Average Dependent Variable", tickfont=dict(size=12), overlaying='y', side='right', range=[0, Property_Type_Filter['AvgDV'].max()], tick0=0, dtick=100000, showgrid=False), paper_bgcolor='white', plot_bgcolor='white', font=dict(color='grey', size=12), showlegend=True, legend=dict(orientation='v', x=1, y=1.2))
-# Chart2_1 = go.Figure(data=[trace21, trace22], layout=layout)
-
-pie_colors = ["olivedrab", "salmon", "mediumslateblue"]
-trace22 = go.Pie(labels=Aggdata2_1['HomeSegment'],values=Aggdata2_1['Count'],hoverinfo='label+percent',marker=dict(colors=pie_colors,line=dict(color='white',width=0)))
-# layout = go.Layout(title='Pie Chart')
-Chart2_1 = go.Figure(data=[trace22])
-# , layout=layout)
-
-left_column2, right_column2 = st.columns([2, 2])
-with left_column2:
-    st.plotly_chart(Chart2_1, use_container_width=True)
-with right_column2:
-    st.write(Aggdata2_1)
 
 st.markdown("<hr style='margin: 5px 0; padding: 0;'>", unsafe_allow_html=True)
 
